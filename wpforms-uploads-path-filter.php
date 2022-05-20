@@ -20,7 +20,7 @@ add_filter( 'wpforms_upload_root', function ( $path ) {
     if ( defined( 'INNOCODE_WPFORMS_UPLOADS_PATH' ) ) {
         $path = untrailingslashit( INNOCODE_WPFORMS_UPLOADS_PATH );
     } else {
-        $path = trailingslashit( WP_CONTENT_DIR ) . 'wpforms';
+        $path = trailingslashit( WP_CONTENT_DIR ) . '/uploads/wpforms';
     }
     return $path;
 } );
