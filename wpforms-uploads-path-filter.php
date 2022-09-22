@@ -26,3 +26,21 @@ add_filter( 'wpforms_upload_root', function ( $path ) {
 } );
 
 
+// disable s3 path replace for submit process
+if ( class_exists( '\S3_Uploads\Plugin' ) ) {
+    $s3_plugin = \S3_Uploads\Plugin::get_instance();
+    add_action( 'wpforms_process_before', function ( $entry, $form_data ) use ( $s3_plugin ) {
+        remove_filter( 'upload_dir', [
+            $s3_plugin,
+            'filter_upload_dir'
+        ] );
+    }, 10, 2 );
+
+    add_action( 'wpforms_process_complete', function ( $fields, $entry, $form_data, $entry_id ) use ( $s3_plugin ) {
+        add_filter( 'upload_dir', [
+            $s3_plugin,
+            'filter_upload_dir'
+        ] );
+    }, 10, 4 );
+}
+
