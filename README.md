@@ -2,7 +2,10 @@
 
 ### Description
 
-Add `wpforms_upload_root` hook to change default wpforms plugin uploads folder 
+1. Add `wpforms_upload_root` hook to change default wpforms plugin uploads folder 
+2. Disable [S3-Uploads](https://github.com/humanmade/S3-Uploads) plugin path replace for wpforms submit process
+
+Requires to setup persistant folder on the server.
 
 
 Default path:
