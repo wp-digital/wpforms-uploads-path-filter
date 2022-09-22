@@ -1,4 +1,4 @@
-# CDN
+# WPforms files fix for Innocode server setup 
 
 ### Description
 
